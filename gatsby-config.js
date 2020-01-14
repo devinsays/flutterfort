@@ -1,31 +1,50 @@
 require(`dotenv`).config({
-  path: `.env`,
-})
+  path: `.env`
+});
 
 module.exports = {
   siteMetadata: {
-    siteTitleAlt: `Minimal Blog - Gatsby Theme`,
+    siteTitle: "Flutter Fort",
+    siteTitleAlt: `Flutter Fort`,
+    siteHeadline: "Site Headline",
+    siteUrl: "https://flutterfort.com",
+    siteDescription: "Site description",
+    siteLanguage: "en-US",
+    siteImage: "https://flutterfort.com/image",
+    author: "Devin Price",
+    showLineNumbers: true,
+    blogPath: "/posts",
+    basePath: "/",
+    tagsPath: "/tags",
+    externalLinks: [
+      {
+        name: `GitHub`,
+        url: `https://github.com/devinsays`
+      },
+      {
+        name: `Twitter`,
+        url: `https://twitter.com/devinsays`
+      }
+    ],
     navigation: [
       {
-        title: `Blog`,
-        slug: `/blog`,
-      },
-      {
-        title: `About`,
-        slug: `/about`,
-      },
-    ],
+        title: `Posts`,
+        slug: `/posts`
+      }
+    ]
   },
   plugins: [
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
-      options: {},
+      options: {
+        blogPath: "/posts"
+      }
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_ID,
-      },
+        trackingId: process.env.GOOGLE_ANALYTICS_ID
+      }
     },
     `gatsby-plugin-sitemap`,
     {
@@ -42,18 +61,18 @@ module.exports = {
           {
             src: `/android-chrome-192x192.png`,
             sizes: `192x192`,
-            type: `image/png`,
+            type: `image/png`
           },
           {
             src: `/android-chrome-512x512.png`,
             sizes: `512x512`,
-            type: `image/png`,
-          },
-        ],
-      },
+            type: `image/png`
+          }
+        ]
+      }
     },
     `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify`,
+    `gatsby-plugin-netlify`
     // `gatsby-plugin-webpack-bundle-analyser-v2`,
-  ],
-}
+  ]
+};
